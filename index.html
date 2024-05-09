@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loan Application</title>
+</head>
+<body>
+	
+  <h2>Loan Application</h2>
+  <form action="confirm.html" method="get">
+    <div>
+      <label for="fullName">Full Name:</label>
+      <input type="text" id="fullName" name="fullName" required pattern="[A-Za-z ]{4,}(?: [A-Za-z ]{4,})+">
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required pattern= "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/">
+    </div>
+    <div>
+      <label for="pan">PAN:</label>
+      <input type="text" id="pan" name="pan" required pattern="[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}">
+    </div>
+    <div>
+      <label for="loanAmount">Loan Amount:</label>
+      <input type="number" id="loanAmount" name="loanAmount" min="1" max="999999999" required>
+		<div>
+      <label>Estimated EMI:</label>
+      <span id="estimatedEMI"></span>
+    </div>
+    </div>
+	  
+    <button type="submit">Submit</button>
+  </form>
+	<script>
+	const estimatedEMI = (loanAmount * 0.085) / 180;
+      document.getElementById('estimatedEMI').textContent = 'Rs. ' + estimatedEMI.toFixed(2) + ' per month';
+	</script>
+	
+</body>
+</html>
