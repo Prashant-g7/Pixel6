@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confirmation Page</title>
+</head>
+	<style>
+	h2{
+			text-align: center;
+		}	
+	</style>
+<body>
+  <h2>Confirmation Page</h2>
+  <script>
+    // Retrieve form values from the URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const fullName = urlParams.get('fullName');
+    const email = urlParams.get('email');
+    const pan = urlParams.get('pan');
+    const loanAmount = urlParams.get('loanAmount');
+
+    // Generate a 4-digit random number (OTP)
+    const randomOTP = Math.floor(1000 + Math.random() * 9000);
+    console.log('Random OTP:', randomOTP);
+
+    // Display confirmation message
+    document.write(`<p>Dear ${fullName.split(' ')[0]},</p>`);
+    document.write('<p>Thank you for your inquiry. A 4 digit verification number has been sent to your email: ');
+    document.write(`${email}, please enter it in the following box and submit for confirmation:</p>`);
+    document.write('<form id="otpForm">');
+    document.write('<input type="text" id="otpInput" placeholder="Enter OTP">');
+    document.write('<button type="submit">Validate</button>');
+    document.write('</form>');
+    
+    // OTP validation logic
+    let attempts = 0;
+    const expectedOTP = randomOTP;
+    const otpForm = document.getElementById('otpForm');
+    otpForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const enteredOTP = document.getElementById('otpInput').value;
+      
+      if (enteredOTP === expectedOTP.toString()) {
+        document.write('<p>Validation Successful!</p>');
+        setTimeout(function() {
+          window.location.href = 'https://www.google.com/';
+        }, 2000);
+      } else {
+        attempts++;
+        if (attempts >= 3) {
+          document.write('<p>Validation Failed!</p>');
+          setTimeout(function() {
+            window.location.href = 'https://www.google.com/';
+          }, 2000);
+        } else {
+          // Reset form and prompt user to try again
+          document.getElementById('otpInput').value = ''; // Clear the input field
+          alert('<p>Invalid OTP. Please try again.</p>');
+        }
+      }
+    });
+  </script>
+</body>
+</html>
