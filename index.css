@@ -1,0 +1,53 @@
+	h2{
+			text-align: center;
+		}	
+		
+.loan-form-container {
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #010409;
+  border-radius: 5px;
+}
+
+/* Styling labels */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Styling input fields */
+ input[type="text"], input[type="email"], input[type="number"] {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #010409;
+  border-radius: 3px;
+}
+
+/* Styling submit button */
+ button[type="submit"] {
+  width: 25%;
+  padding: 10px;
+	 margin-top: 10px;
+  background-color: #238636;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* Styling estimated EMI field */
+ #estimatedEMI {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+ #userSession {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+        }
