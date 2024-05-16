@@ -17,6 +17,6 @@
             var emi = (loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) / (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
             emi = emi.toFixed(2);
 
-            document.getElementById("emiResult").innerHTML = "Estimated Monthly EMI: $" + emi;
+            document.getElementById("emiResult").innerHTML = "Estimated Monthly EMI: Rs." + emi;
         }
 
